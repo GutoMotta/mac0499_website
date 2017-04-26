@@ -1,6 +1,24 @@
+[space-for]::after {
+  display: block;
+  content: attr(space-for);
+  height: 1px;
+  color: transparent;
+  overflow: hidden;
+  visibility: hidden;
+  margin-bottom: -1px;
+}
+
 .titulo {
   padding-top: 60px;
   text-align: left;
+}
+
+.cronograma table td:not(:first-child), th {
+  text-align: center;
+}
+
+.cronograma table th {
+  min-width: 90px;
 }
 
 .m-b-5 { margin-bottom: 5px; }

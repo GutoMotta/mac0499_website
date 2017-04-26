@@ -31,11 +31,6 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li>
-            <a href="index.html">
-              Home
-            </a>
-          </li>
           <li class="active">
             <a href="#">
               Proposta
@@ -66,58 +61,216 @@
     </div>
 
     <div class="row">
-      <div class="motivacao col-xs-12">
-        <h2 id="motivacao">
-          Motivação
+      <div id="motivacao" class="motivacao col-xs-12">
+        <h2>
+          A motivação
         </h2>
 
         <p>
-          Dentro da área de Recuperação de Informação Musical (MIR), o
-          reconhecimento automatizado de acordes é um assunto ativamente
-          pesquisado. Diversas soluções para o problema já foram propostas; como
-          exemplo, duas apresentadas em [1] (uma envolvendo reconhecimento de
-          acordes baseado em templates, outra reconhecimento baseado em cadeias
-          ocultas de Markov); outra apresentada em [2] (usando Transformada de
-          wavelet discreta e redes neurais).
+          Na música popular, tanto brasileira como internacional, um dos
+          sistemas de notação musical mais utilizados é a cifra. A cifra de uma
+          música consiste em letras e símbolos gráficos que representam os
+          acordes a serem executados por determinado instrumento musical. É
+          comum que a cifra seja escrita em cima da letra da música, alinhada de
+          forma que se possa, facilmente, acompanhar o canto com os acordes.
         </p>
 
         <p>
-          Nesse trabalho pretende-se estudar o problema e algumas das soluções
-          existentes. Como parte prática, possíveis caminhos a se seguir são a
-          implementação e comparação de diversas soluções; ou ainda a
-          implementação de um sistema que construa a cifra de uma música baseado
-          em sua letra e gravação em arquivo de áudio - a metodologia específica
-          será definida com base na bibliografia a ser estudada.
+          Atualmente, encontrar uma cifra na internet é bastante simples.
+          Diversos sites - como o
+          <a href="https://www.cifraclub.com.br/">CifraClub</a>,
+          por exemplo - oferecem esse serviço e possuem um vasto banco de dados
+          abrangendo grande parte das músicas mais populares.
+        </p>
+
+        <p>
+          A maioria dos bancos de dados que contém esse tipo de documento são
+          construídos de forma colaborativa: músicos transpõem a harmonia de
+          determinada música de ouvido, e, em seguida, compartilham o resultado.
+          Vale ressaltar que a transposição de uma música nem sempre é uma
+          tarefa fácil ou rápida - mesmo músicos experientes podem considerar
+          tedioso produzir a cifra de uma música. Tampouco é uma tarefa
+          objetiva, pois músicos diferentes podem escrever cifras diferentes
+          para uma mesma música. Além disso, músicos que ainda não aprenderam a
+          transpor harmonias de ouvido muitas vezes dependem da disponibilidade
+          de certa cifra em algum desses serviços quando querem aprender a tocar
+          uma música. Quando se trata de uma música não tão popular, nem sempre
+          sua cifra já foi produzida e compartilhada.
+        </p>
+
+        <p>
+          Diante dessa realidade, se mostra atrativa a possibilidade de produzir
+          a cifra de uma música automaticamente, baseando-se apenas na
+          representação em áudio da mesma, de forma a diminuir o trabalho
+          envolvido no compartilhamento da cifra de uma música e aumentar a
+          variedade de cifras disponíveis ao público.
         </p>
       </div>
-    </div>
 
-      <div class="problema col-xs-12">
-        <h2 id="problema">
-          Problema
+      <div id="problema" class="problema col-xs-12">
+        <h2>
+          O problema e seu panorama
         </h2>
 
         <p>
-          Dentro da área de Recuperação de Informação Musical (MIR), o
-          reconhecimento automatizado de acordes é um assunto ativamente
-          pesquisado. Diversas soluções para o problema já foram propostas; como
-          exemplo, duas apresentadas em [1] (uma envolvendo reconhecimento de
-          acordes baseado em templates, outra reconhecimento baseado em cadeias
-          ocultas de Markov); outra apresentada em [2] (usando Transformada de
-          wavelet discreta e redes neurais).
+          O problema do reconhecimento automatizado de acordes pode ser descrito
+          como: dada uma representação de áudio de uma música, devolver uma
+          sequência de etiquetas, cada uma representando um acorde, acompanhadas
+          dos respectivos tempos de início e fim de cada acorde na música.
         </p>
 
         <p>
-          Nesse trabalho pretende-se estudar o problema e algumas das soluções
-          existentes. Como parte prática, possíveis caminhos a se seguir são a
-          implementação e comparação de diversas soluções; ou ainda a
-          implementação de um sistema que construa a cifra de uma música baseado
-          em sua letra e gravação em arquivo de áudio - a metodologia específica
-          será definida com base na bibliografia a ser estudada.
+          Dentro da área de Recuperação de Informação Musical 
+          (<a href="http://bit.ly/2pmaWw8">MIR</a>), o reconhecimento
+          automatizado de acordes é um assunto ativamente pesquisado. Diversas
+          soluções para o problema já foram propostas; como exemplo, duas
+          apresentadas na bibliografia preliminar (uma envolvendo reconhecimento
+          de acordes baseado em templates, outra reconhecimento baseado em
+          cadeias ocultas de Markov); outra apresentada
+          <a href="articles/multi-timbre_chord_classification_using_wavelet_transform_and_self-organized_map_neural_networks.pdf">
+            neste artigo</a>
+          (usando Transformada de wavelet discreta e redes neurais).
+        </p>
+
+        <p>
+          Existem também, no mercado, algumas soluções para geração automática
+          de cifras de uma música (como, por exemplo, o
+          <a href="http://bit.ly/2pzW5z3">Chordify</a>), e é possível encontrar
+          projetos de código aberto que lidam com este problema (como por
+          exemplo <a href="http://bit.ly/2q8v1qy">este projeto</a>, cuja
+          apresentação é feita <a href="http://bit.ly/2pzTQvT">neste
+          artigo</a>).
         </p>
       </div>
-    </div>
 
+      <div id="projeto" class="projeto col-xs-12">
+        <h2>
+          O projeto
+        </h2>
+
+        <p>
+          Nesse trabalho pretende-se estudar o problema e algumas das soluções
+          existentes. Como ponto de partida, usaremos o livro <b>
+          <a href="http://bit.ly/2piTgQb">"Fundamentals of Music Processing"</a>
+          </b>, cujo capítulo 5 faz uma descrição completa do problema e
+          apresenta possíveis soluções.
+        </p>
+
+        <p>
+          Ao analisar o problema, notou-se que seria desejável um sistema que
+          recebesse áudio e letra de uma música e devolvesse a cifra alinhada
+          à letra. Porém, alinhamento entre letra e música (i.e., criação de
+          uma relação temporal entre o áudio e as sílabas ou linhas da letra) é
+          um problema à parte, também amplamente estudado e que inspirou
+          diversas soluções (como podemos ver
+          <a href="http://bit.ly/2p4GK8p">aqui</a>).
+        </p>
+
+        <p>
+          Por isso, o aprofundamento será no problema de reconhecimento de
+          acordes, implicando possivelmente no desenvolvimento de um sistema
+          que implemente soluções; apesar de não se descartar a busca de
+          integração com soluções já implementadas de alinhamento entre letra e
+          áudio (ou mesmo implementação própria), caso isso se mostre factível
+          em tempo hábil.
+        </p>
+
+        <h3 id="cronograma">
+          Cronograma
+        </h3>
+
+        <div class="cronograma table-responsive table-wrapper">
+          <table class="table table-striped fs-btext <%= klass %>">
+            <thead>
+              <tr>
+                <th></th>
+                <th>abr</th>
+                <th>mai</th>
+                <th>jun</th>
+                <th>jul</th>
+                <th>ago</th>
+                <th>set</th>
+                <th>out</th>
+                <th>nov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pesquisa sobre reconhecimento</td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Pesquisa sobre alinhamento</td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Desenvolvimento</td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Monografia</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+              </tr>
+
+              <tr>
+                <td>Análise de resultados</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Pôster</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Bootstrap core JavaScript

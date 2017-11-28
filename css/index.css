@@ -25,3 +25,33 @@
 .m-b-15 { margin-bottom: 15px; }
 .d-inline-block { display: inline-block; }
 
+.navbar-inverse.nav-color,
+.navbar-inverse.nav-color button,
+.navbar-inverse.nav-color button:focus,
+.navbar-inverse.nav-color .navbar-header,
+.navbar-inverse.nav-color .navbar-collapse {
+  background-color: #6991AC;
+  border-color: #67727A;
+}
+
+.navbar-inverse.nav-color li a, .navbar-inverse.nav-color a {
+  color: white;
+}
+
+.navbar-inverse.nav-color .active a {
+  background-color: #74a1bc;
+}
+
+.navbar-inverse.nav-color li a:hover,
+.navbar-inverse.nav-color li.active a:hover,
+.navbar-inverse.nav-color button:hover {
+  background-color: #80b0ce;
+}
+
+h1, h2, h3 {
+  color: #3e4549;
+}
+
+* {
+  color: #2b2f33;
+}

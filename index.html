@@ -33,7 +33,7 @@
         <ul class="nav navbar-nav">
           <li class="active">
             <a href="#">
-              Proposta
+              Resumo
             </a>
           </li>
 
@@ -81,253 +81,25 @@
     <div class="row">
       <div id="motivacao" class="motivacao col-xs-12">
         <h2>
-          Motivação
+          Resumo
         </h2>
 
         <p>
-          Na música popular, tanto brasileira como internacional, um dos
-          sistemas de notação musical mais utilizados é a cifra. A cifra de uma
-          música consiste em letras e símbolos gráficos que representam os
-          acordes a serem executados por determinado instrumento musical. É
-          comum que a cifra seja escrita em cima da letra da música, alinhada de
-          forma que se possa, facilmente, acompanhar o canto com os acordes.
+          O reconhecimento automatizado de acordes é um processo no qual, dado
+          um sinal de áudio de uma música, se produz uma sequência de etiquetas,
+          cada uma representando um acorde, acompanhadas dos respectivos tempos
+          de início e fim de cada acorde que é tocado na música. Neste trabalho,
+          se descreverá o problema de forma detalhada, passando pelos con-
+          ceitos teóricos envolvidos, e se estudará e implementará uma solução
+          particular, proposta em Müller (2015). Também se discutirá um método
+          de avaliação do algoritmo, através da obtenção de estatísticas
+          comparativas entre dados rotulados automaticamente e dados de
+          treinamento previamente rotulados, usando estratégias como validação
+          cruzada e a medida de precisão, típica de recuperação de informação. A
+          melhor precisão média obtida nos ex- perimentos foi de 55%, usando CQT
+          para extração de cromagramas e suavização temporal dos cromas antes da
+          etapa de casamento de padrões do algoritmo apresentado.
         </p>
-
-        <p>
-          Atualmente, encontrar uma cifra na internet é bastante simples.
-          Diversos sites - como o
-          <a href="https://www.cifraclub.com.br/">CifraClub</a>,
-          por exemplo - oferecem esse serviço e possuem um vasto banco de dados
-          abrangendo grande parte das músicas mais populares.
-        </p>
-
-        <p>
-          A maioria dos bancos de dados que contém esse tipo de documento são
-          construídos de forma colaborativa: músicos transcrevem a harmonia de
-          determinada música de ouvido, e, em seguida, compartilham o resultado.
-          Vale ressaltar que a transcrição de uma música nem sempre é uma
-          tarefa fácil ou rápida - mesmo músicos experientes podem considerar
-          tedioso produzir a cifra de uma música. Tampouco é uma tarefa
-          objetiva, pois músicos diferentes podem escrever cifras diferentes
-          para uma mesma música. Além disso, músicos que ainda não aprenderam a
-          transpor harmonias de ouvido muitas vezes dependem da disponibilidade
-          de certa cifra em algum desses serviços quando querem aprender a tocar
-          uma música. Quando se trata de uma música não tão popular, nem sempre
-          sua cifra já foi produzida e compartilhada.
-        </p>
-
-        <p>
-          Diante dessa realidade, se mostra atrativa a possibilidade de produzir
-          a cifra de uma música automaticamente, de forma a diminuir o trabalho
-          envolvido no compartilhamento da cifra de uma música e aumentar a
-          variedade de cifras disponíveis ao público.
-        </p>
-      </div>
-
-      <div id="problema" class="problema col-xs-12">
-        <h2>
-          O problema e seu panorama
-        </h2>
-
-        <p>
-          O problema do reconhecimento automatizado de acordes pode ser descrito
-          como: dada uma representação de áudio de uma música, devolver uma
-          sequência de etiquetas, cada uma representando um acorde, acompanhadas
-          dos respectivos tempos de início e fim de cada acorde na música.
-        </p>
-
-        <p>
-          Dentro da área de Recuperação de Informação Musical
-          (<a href="http://bit.ly/2pmaWw8">MIR</a>), o reconhecimento
-          automatizado de acordes é um assunto ativamente pesquisado. Diversas
-          soluções para o problema já foram propostas; como exemplo, duas
-          apresentadas na bibliografia preliminar (uma envolvendo reconhecimento
-          de acordes baseado em templates, outra reconhecimento baseado em
-          cadeias ocultas de Markov); outra apresentada
-          <a href="articles/multi-timbre_chord_classification_using_wavelet_transform_and_self-organized_map_neural_networks.pdf">
-            neste artigo</a>
-          (usando Transformada de wavelet discreta e redes neurais).
-        </p>
-
-        <p>
-          Existem também, no mercado, algumas soluções para geração automática
-          de cifras de uma música (como, por exemplo, o
-          <a href="http://bit.ly/2pzW5z3">Chordify</a>), e é possível encontrar
-          projetos de código aberto que lidam com este problema (como por
-          exemplo <a href="http://bit.ly/2q8v1qy">este projeto</a>, cuja
-          apresentação é feita <a href="http://bit.ly/2pzTQvT">neste
-          artigo</a>).
-        </p>
-
-        <p>
-          Uma alternativa interessante seria considerar um sistema que recebesse
-          áudio e letra de uma música e devolvesse a cifra alinhada
-          temporalmente à letra. Porém, o alinhamento entre letra e música
-          (i.e., criação de uma relação temporal entre o áudio e as sílabas ou
-          linhas da letra) é um problema substancialmente diverso do
-          reconhecimento de acordes, também amplamente estudado, e que inspirou
-          diversas soluções (como podemos ver
-          <a href="http://bit.ly/2p4GK8p">aqui</a>). Nesse sentido, pretendemos
-          verificar a viabilidade de integração do reconhecedor de acordes
-          desenvolvido nesse projeto com soluções já implementadas para o
-          alinhamento entre letra e áudio.
-        </p>
-      </div>
-
-      <div id="projeto" class="projeto col-xs-12">
-        <h2>
-          Projeto
-        </h2>
-
-        <p>
-          Nesse trabalho pretende-se estudar o problema do reconhecimento de
-          acordes e implementar algumas das soluções existentes. Como ponto de
-          partida, usaremos o livro <b>
-          <a href="http://bit.ly/2piTgQb">"Fundamentals of Music Processing"</a>
-          </b>, cujo capítulo 5 faz uma descrição formal do problema e
-          apresenta possíveis soluções, além de estudar os outros artigos
-          citados.
-        </p>
-
-        <p>
-          Estas implementações irão compor um sistema modular, permitindo ao
-          usuário escolher a técnica de reconhecimento empregada, e também a
-          obtenção de estatísticas comparativas entre dados rotulados
-          automaticamente e dados de treinamento previamente rotulados, usando
-          estratégias como validação cruzada e medidas típicas de recuperação de
-          informação como precision, recall e F-measure.
-        </p>
-      </div>
-
-      <div id="cronograma" class="projeto col-xs-12">
-        <h2>
-          Cronograma
-        </h2>
-
-        <div class="cronograma table-responsive table-wrapper">
-          <table class="table table-striped fs-btext <%= klass %>">
-            <thead>
-              <tr>
-                <th></th>
-                <th>abr</th>
-                <th>mai</th>
-                <th>jun</th>
-                <th>jul</th>
-                <th>ago</th>
-                <th>set</th>
-                <th>out</th>
-                <th>nov</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Pesquisa sobre reconhecimento</td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>Pesquisa sobre alinhamento</td>
-                <td></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>Desenvolvimento</td>
-                <td></td>
-                <td></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>Monografia</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-              </tr>
-
-              <tr>
-                <td>Análise de resultados</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-                <td></td>
-              </tr>
-
-              <tr>
-                <td>Pôster</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div id="bibliografia" class="bibliografia col-xs-12">
-        <h2>
-          Bibliografia
-        </h2>
-
-        <ul>
-          <li>
-            MÜLLER, Meinard. <b>Fundamentals of Music Processing: Audio,
-            Analysis, Algorithms, Applications</b>. Springer, 2015.
-          </li>
-          <li>
-            HARTE, Christopher. <b>Towards automatic extraction of harmony
-            information from music signals.</b> 2010. Tese de Doutorado.
-          </li>
-          <li>
-            SU, Borching; JENG, Shyh-Kang. Multi-timbre chord classification
-            using wavelet transform and self-organized map neural networks. In:
-            <b>Acoustics, Speech, and Signal Processing, 2001.
-            Proceedings.(ICASSP'01). 2001 IEEE International Conference on.</b>
-            IEEE, 2001. p. 3377-3380.
-          </li>
-          <li>
-            LEE, Kyogu. Automatic Chord Recognition from Audio Using Enhanced
-            Pitch Class Profile. In: <b>ICMC</b>. 2006.
-          </li>
-          <li>
-            FUJIHARA, Hiromasa; GOTO, Masataka. Lyrics-to-audio alignment and
-            its application. In: <b>Dagstuhl Follow-Ups</b>.
-            Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik, 2012.
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 
